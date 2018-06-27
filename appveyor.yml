@@ -1,0 +1,24 @@
+version: 1.0.{build}
+
+image: Visual Studio 2017
+
+environment:
+  azure_pwd:
+    secure: 7PmlZ5iEcSExpD6y1++gzHmQJeLSzuSxUk6upBi1BD7x1iev16BlkB/7ZN65buOv87Rr9M5v60l18UUo5D140A==
+    
+install:
+  - nuget restore
+  - cmd: echo "install stage"
+  
+build:
+  project: WebAppTestDeployment.sln
+  publish_wap: true
+
+deploy:
+- provider: WebDeploy
+  password: $(azure_pwd)
+  website: WebAppTestDeployment
+  username: $WebAppTestDeployment
+  server: https://webapptestdeployment.scm.azurewebsites.net:443/msdeploy.axd?site=WebAppTestDeployment
+  NTLM: disabled
+
