@@ -16,8 +16,7 @@ build:
 
 deploy:
 - provider: WebDeploy
-  password:
-    secure: $(azure_pwd)
+  password: $(azure_pwd)
   website: WebAppTestDeployment
   username: OwenMcdonnell
   server: https://webapptestdeployment.azurewebsites.net
