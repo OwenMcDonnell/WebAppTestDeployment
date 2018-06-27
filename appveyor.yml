@@ -5,7 +5,7 @@ environment:
     secure: x9dI7W6ncKEEN6PaAtHfZw==
 install:
   - nuget restore
-  -cmd: echo "install stage"
+  - cmd: echo "install stage"
 build:
   project: WebAppTestDeployment.sln
   publish_wap: true
