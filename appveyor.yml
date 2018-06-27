@@ -1,0 +1,19 @@
+version: 1.0.{build}
+image: Visual Studio 2017
+environment:
+  azure_pwd:
+    secure: x9dI7W6ncKEEN6PaAtHfZw==
+install:
+  -cmd: echo "install stage"
+build:
+  project: WebAppTestDeployment.sln
+  publish_wap: true
+
+deploy:
+- provider: WebDeploy
+  password:
+    secure: $(azure_pwd)
+  website: WebAppTestDeployment
+  username: OwenMcdonnell
+
+
