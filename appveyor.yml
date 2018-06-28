@@ -10,7 +10,7 @@ environment:
     
 install:
   - nuget restore
-  - cmd: echo "install stage"
+  
   
 build:
   project: WebAppTestDeployment.sln
