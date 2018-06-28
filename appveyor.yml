@@ -3,8 +3,10 @@ version: 1.0.{build}
 image: Visual Studio 2017
 
 environment:
-  azure_pwd:
+  azure_pwd1:
     secure: 7PmlZ5iEcSExpD6y1++gzHmQJeLSzuSxUk6upBi1BD7x1iev16BlkB/7ZN65buOv87Rr9M5v60l18UUo5D140A==
+  azure_pwd2:
+    secure: OQuOhjB3wU4zkGpqkQ8JjUOeHHv0Q2z4T2M8Bdd4CN6LZtee37L/8MA5+A6I6URLjoouYF4h7ccKKGKwhKxQvg==
     
 install:
   - nuget restore
@@ -16,9 +18,18 @@ build:
 
 deploy:
 - provider: WebDeploy
-  password: $(azure_pwd)
+  password: $(azure_pwd1)
   website: WebAppTestDeployment
   username: $WebAppTestDeployment
   server: https://webapptestdeployment.scm.azurewebsites.net:443/msdeploy.axd?site=WebAppTestDeployment
   NTLM: disabled
+  
+- provider: WebDeploy
+  password: $(azure_pwd2)
+  website: WebAppTestDeployment2
+  username: $WebAppTestDeployment2
+  server: https://webapptestdeployment2.scm.azurewebsites.net:443/msdeploy.axd?site=WebAppTestDeployment2
+  NTLM: disabled
+
+
 
