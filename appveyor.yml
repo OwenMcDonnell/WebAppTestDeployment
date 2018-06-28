@@ -1,7 +1,9 @@
 version: 1.0.{build}
 
 image: Visual Studio 2017
-
+configuration:
+  - Debug
+  - Release
 environment:
   azure_pwd1:
     secure: 7PmlZ5iEcSExpD6y1++gzHmQJeLSzuSxUk6upBi1BD7x1iev16BlkB/7ZN65buOv87Rr9M5v60l18UUo5D140A==
@@ -23,6 +25,8 @@ deploy:
   username: $WebAppTestDeployment
   server: https://webapptestdeployment.scm.azurewebsites.net:443/msdeploy.axd?site=WebAppTestDeployment
   NTLM: disabled
+  on: 
+    branch: Master
   
 - provider: WebDeploy
   password: $(azure_pwd2)
@@ -30,6 +34,8 @@ deploy:
   username: $WebAppTestDeployment2
   server: https://webapptestdeployment2.scm.azurewebsites.net:443/msdeploy.axd?site=WebAppTestDeployment2
   NTLM: disabled
+  on:
+    branch: Staging
 
 
 
