@@ -41,7 +41,7 @@ deploy:
 on_success:
 
   - git config --global credential.helper store
-  - ps: Add-Content "$HOME\.git-credentials" "https://$($github_token):x-oauth-basic@github.com`n"
+  - ps: Add-Content "$HOME\.git-credentials" "https://$github_token:x-oauth-basic@github.com`n"
   - git config --global user.email "owenmcdonnell@appveyor.com"
   - git config --global user.name "OwenMcdonnell"
 
