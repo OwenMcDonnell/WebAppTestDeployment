@@ -40,7 +40,7 @@ deploy:
     branch: Staging
 
 on_success:
-  - md C:/Projects/wiki
+  - ps: md C:/Projects/wiki
   - git config --global credential.helper store
   - ps: Add-Content "$HOME\.git-credentials" "https://$($env:github_token):x-oauth-basic@github.com`n"
   - git config --global user.email "owenmcdonnell@appveyor.com"
