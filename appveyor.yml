@@ -1,7 +1,8 @@
 version: 1.0.{build}
 
 image: Visual Studio 2017
-
+init:
+  - cmd: git config --global core.autocrlf true
 environment:
   github_token:
     secure: W5UODHqSQqiQPupFKXxkM2A5c4i8evVO3kSKV+SikHLYMR8n9ZvWJZqquZFA6aXp
