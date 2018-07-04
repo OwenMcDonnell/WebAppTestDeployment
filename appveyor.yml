@@ -44,7 +44,7 @@ on_success:
   - git config --global user.email "owenmcdonnell@appveyor.com"
   - git config --global user.name "OwenMcdonnell"
 
-  - git clone --branch=master "https://github.com/OwenMconnell/netcoreConsoleApp.git" -q
+  - git clone --branch=master "https://github.com/OwenMcDonnell/netcoreConsoleApp.git" -q
   - cd netcoreConsoleApp
   - git status
   - ps: Add-content "README.md" "added content"
