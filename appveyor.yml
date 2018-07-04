@@ -4,7 +4,8 @@ image: Visual Studio 2017
 
 environment:
   github_token:
-    secure: 9a/h0Ohk7nVzvZbqq5F8macjQMCluZ9yaj8YBjVnIH6roPfztWdi6o00LkjN50Bj
+    secure: W5UODHqSQqiQPupFKXxkM2A5c4i8evVO3kSKV+SikHLYMR8n9ZvWJZqquZFA6aXp
+
   azure_pwd1:
     secure: 7PmlZ5iEcSExpD6y1++gzHmQJeLSzuSxUk6upBi1BD7x1iev16BlkB/7ZN65buOv87Rr9M5v60l18UUo5D140A==
   azure_pwd2:
