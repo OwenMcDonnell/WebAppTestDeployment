@@ -12,6 +12,7 @@ environment:
     
 install:
   - nuget restore
+  - ps: write-host $env:path.Replace(';', "`n")
   
   
 build:
@@ -36,23 +37,4 @@ deploy:
   NTLM: disabled
   on:
     branch: Staging
-
-on_success:
-
-  - git config --global credential.helper store
-  - ps: Add-Content "$HOME\.git-credentials" "https://$($github_token):x-oauth-basic@github.com`n"
-  - git config --global user.email "owenmcdonnell@appveyor.com"
-  - git config --global user.name "OwenMcdonnell"
-
-  - git clone --branch=master "https://github.com/OwenMcDonnell/WebAppTestDeployment.wiki.git" -q
-  - cd netcoreConsoleApp
-  - git status
-  - ps: Add-content "Home.md" "added content"
-  - git status
-  - git add .
-  - git status
-  - git commit -m "Commiting changes"
-  - git status
-  - git push
-  - git status
 
