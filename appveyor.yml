@@ -12,6 +12,7 @@ image: Visual Studio 2017
     
 install:
  # - nuget restore
+  - echo %xunit20%
   - ps: |
       $wc = New-Object Net.WebClient;
       $wc.headers['user-agent'] = "BooruSharp";
