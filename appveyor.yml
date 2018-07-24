@@ -12,6 +12,7 @@ image: Visual Studio 2017
     
 install:
  # - nuget restore
+  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
   - echo %xunit20%
   - ps: |
       $wc = New-Object Net.WebClient;
