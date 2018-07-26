@@ -15,9 +15,9 @@ install:
  # - nuget restore
   - ps: Remove-Item -Recurse -Force C:/cygwin
   - ps: Remove-Item -Recurse -Force C:/cygwin64
-
-  #- ps: $host.Runspace.ApartmentState
-  - ps: [System.Windows.Forms.Clipboard]::SetText("Paste this text to the clipboard")
+  - ps: $host.Runspace.ApartmentState
+  - ps: |
+      [System.Windows.Forms.Clipboard]::SetText("Paste this text to the clipboard")
   #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
   #- echo %xunit20%
   #- ps: |
