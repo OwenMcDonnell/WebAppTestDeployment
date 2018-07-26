@@ -3,7 +3,7 @@ version: 1.0.{build}
 image: Visual Studio 2017
 
 environment:
-  APPVEYOR_BUILD_WORKER_CLOUD: GCE
+  #APPVEYOR_BUILD_WORKER_CLOUD: GCE
   #github_token:
    # secure: 9a/h0Ohk7nVzvZbqq5F8macjQMCluZ9yaj8YBjVnIH6roPfztWdi6o00LkjN50Bj
   #azure_pwd1:
@@ -15,12 +15,15 @@ install:
  # - nuget restore
   - ps: Remove-Item -Recurse -Force C:/cygwin
   - ps: Remove-Item -Recurse -Force C:/cygwin64
+  - ps: # %ForceSTA% = True
+  - ps: $host.Runspace.ApartmentState
+  - ps: [System.Windows.Forms.Clipboard]::SetText("Paste this text to the clipboard")
   #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
-  - echo %xunit20%
-  - ps: |
-      $wc = New-Object Net.WebClient;
-      $wc.headers['user-agent'] = "BooruSharp";
-      $wc.Downloadstring("https://lolibooru.moe/tag/index.xml?id=2939");
+  #- echo %xunit20%
+  #- ps: |
+   #   $wc = New-Object Net.WebClient;
+    #  $wc.headers['user-agent'] = "BooruSharp";
+     # $wc.Downloadstring("https://lolibooru.moe/tag/index.xml?id=2939");
   
   
 build: off
