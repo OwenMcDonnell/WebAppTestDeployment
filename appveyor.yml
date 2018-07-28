@@ -2,7 +2,7 @@ version: 1.0.{build}
 
 image: Visual Studio 2017
 init:
-  - ps: cd C:/tools
+  #- ps: cd C:/tools
 environment:
   #APPVEYOR_BUILD_WORKER_CLOUD: GCE
   github_token:
