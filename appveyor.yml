@@ -17,6 +17,7 @@ install:
   #- ps: Remove-Item -Recurse -Force C:/cygwin
   #- ps: Remove-Item -Recurse -Force C:/cygwin64
   - cd
+  - dir
   #- ps: $host.Runspace.ApartmentState
   #- ps: |
    #   [System.Windows.Forms.Clipboard]::SetText("Paste this text to the clipboard")
