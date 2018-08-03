@@ -2,7 +2,7 @@ version: 1.0.{build}
 
 image: Visual Studio 2017
 init:
-  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+  #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 environment:
   #APPVEYOR_BUILD_WORKER_CLOUD: GCE
   github_token:
@@ -16,8 +16,8 @@ install:
  # - nuget restore
   #- ps: Remove-Item -Recurse -Force C:/cygwin
   #- ps: Remove-Item -Recurse -Force C:/cygwin64
-  - cd
-  - dir
+  - ps: Install-Package InheritDoc -Version 1.2.0.1
+  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
   #- ps: $host.Runspace.ApartmentState
   #- ps: |
    #   [System.Windows.Forms.Clipboard]::SetText("Paste this text to the clipboard")
