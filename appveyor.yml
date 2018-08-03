@@ -16,7 +16,7 @@ install:
  # - nuget restore
   #- ps: Remove-Item -Recurse -Force C:/cygwin
   #- ps: Remove-Item -Recurse -Force C:/cygwin64
-  - ps: Install-Package InheritDoc -Version 1.2.0.1
+  - ps: dotnet add package InheritDoc --version 1.2.0.1
   - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
   #- ps: $host.Runspace.ApartmentState
   #- ps: |
