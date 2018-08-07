@@ -16,7 +16,7 @@ install:
   
 build:
   project: WebAppTestDeployment.sln
-  publish_wap: true
+  #publish_wap: true
 
 deploy:
 #- provider: WebDeploy
