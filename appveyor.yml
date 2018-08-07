@@ -51,4 +51,12 @@ deploy:
   NTLM: disabled
   on:
     branch: Staging
+    
+- provider: GitHub
+  force_update: true
+  tag: $(APPVEYOR_REPO_TAG_NAME)
+  description: $(APPVEYOR_REPO_TAG_NAME)
+  auth_token:
+    secure: 6A+hmRmeG9NuSdRM2dm5RpRWItLMEHyBe5PKOapBdzvpwyeojNyCkFZ1a4BdH4Qy
+  
 
