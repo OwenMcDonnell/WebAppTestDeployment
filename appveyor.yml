@@ -16,7 +16,7 @@ install:
  # - nuget restore
   #- ps: Remove-Item -Recurse -Force C:/cygwin
   #- ps: Remove-Item -Recurse -Force C:/cygwin64
-  - ps: nuget install InheritDoc -Version 1.2.0.1
+  #- ps: nuget install InheritDoc -Version 1.2.0.1
   - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
   #- ps: $host.Runspace.ApartmentState
   #- ps: |
@@ -52,11 +52,11 @@ deploy:
   on:
     branch: Staging
     
-- provider: GitHub
-  force_update: true
-  tag: $(APPVEYOR_REPO_TAG_NAME)
-  description: $(APPVEYOR_REPO_TAG_NAME)
-  auth_token:
-    secure: 6A+hmRmeG9NuSdRM2dm5RpRWItLMEHyBe5PKOapBdzvpwyeojNyCkFZ1a4BdH4Qy
+#- provider: GitHub
+ # force_update: true
+  #tag: $(APPVEYOR_REPO_TAG_NAME)
+  #description: $(APPVEYOR_REPO_TAG_NAME)
+  #auth_token:
+   # secure: 6A+hmRmeG9NuSdRM2dm5RpRWItLMEHyBe5PKOapBdzvpwyeojNyCkFZ1a4BdH4Qy
   
 
