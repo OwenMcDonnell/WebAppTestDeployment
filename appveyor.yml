@@ -3,7 +3,8 @@ version: 1.0.{build}
 image: Visual Studio 2017
 #init:
   #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
-#environment:
+environment:
+  notepadPath: C:/windows
   #APPVEYOR_BUILD_WORKER_CLOUD: GCE
   #github_token:
    # secure: 9a/h0Ohk7nVzvZbqq5F8macjQMCluZ9yaj8YBjVnIH6roPfztWdi6o00LkjN50Bj
@@ -17,8 +18,7 @@ install:
   #- ps: Remove-Item -Recurse -Force C:/cygwin
   #- ps: Remove-Item -Recurse -Force C:/cygwin64
   #- ps: nuget install InheritDoc -Version 1.2.0.1
-  
-  - ps: & C:/Windows/notepad.exe C:/windows/WindowsUpdate.log
+  - ps: '& $env:notepadPath/notepad.exe C:/windows/WindowsUpdate.log'
   #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
   #- ps: $host.Runspace.ApartmentState
   #- ps: |
