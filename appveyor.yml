@@ -4,7 +4,10 @@ image: Visual Studio 2017
 #init:
   #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 environment:
-  notepadPath: C:/windows
+  matrix:
+    - appveyor_build_worker_cloud: GCE
+    - matrix_var: var1
+  #notepadPath: C:/windows
   #APPVEYOR_BUILD_WORKER_CLOUD: GCE
   #github_token:
    # secure: 9a/h0Ohk7nVzvZbqq5F8macjQMCluZ9yaj8YBjVnIH6roPfztWdi6o00LkjN50Bj
@@ -18,7 +21,8 @@ install:
   #- ps: Remove-Item -Recurse -Force C:/cygwin
   #- ps: Remove-Item -Recurse -Force C:/cygwin64
   #- ps: nuget install InheritDoc -Version 1.2.0.1
-  - ps: '$env:notepadPath/notepad.exe C:/windows/WindowsUpdate.log'
+  - ps: Invoke-WebRequest -Uri http://download.microsoft.com/download/D/D/E/DDE57C26-C62C-4C59-A1BB-31D58B36ADA2/rewrite_amd64_en-US.msi -OutFile $env:APPVEYOR_BUILD_FOLDER/urlRewriterInstaller.msi
+  #- ps: '$env:notepadPath/notepad.exe C:/windows/WindowsUpdate.log'
   #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
   #- ps: $host.Runspace.ApartmentState
   #- ps: |
