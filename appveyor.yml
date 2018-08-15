@@ -4,9 +4,10 @@ image: Visual Studio 2017
 #init:
   #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 environment:
-  matrix:
-    - appveyor_build_worker_cloud: GCE
-    - matrix_var: var1
+  
+  #matrix:
+   # - appveyor_build_worker_cloud: GCE
+    #- matrix_var: var1
   #notepadPath: C:/windows
   #APPVEYOR_BUILD_WORKER_CLOUD: GCE
   #github_token:
@@ -15,13 +16,15 @@ environment:
    # secure: 7PmlZ5iEcSExpD6y1++gzHmQJeLSzuSxUk6upBi1BD7x1iev16BlkB/7ZN65buOv87Rr9M5v60l18UUo5D140A==
   #azure_pwd2:
    # secure: OQuOhjB3wU4zkGpqkQ8JjUOeHHv0Q2z4T2M8Bdd4CN6LZtee37L/8MA5+A6I6URLjoouYF4h7ccKKGKwhKxQvg==
-    
+services:
+  - mysql
 install:
+  - mysql -e "create database openswap_test;" -u root
  # - nuget restore
   #- ps: Remove-Item -Recurse -Force C:/cygwin
   #- ps: Remove-Item -Recurse -Force C:/cygwin64
   #- ps: nuget install InheritDoc -Version 1.2.0.1
-  - ps: Invoke-WebRequest -Uri http://download.microsoft.com/download/D/D/E/DDE57C26-C62C-4C59-A1BB-31D58B36ADA2/rewrite_amd64_en-US.msi -OutFile $env:APPVEYOR_BUILD_FOLDER/urlRewriterInstaller.msi
+  #- ps: Invoke-WebRequest -Uri http://download.microsoft.com/download/D/D/E/DDE57C26-C62C-4C59-A1BB-31D58B36ADA2/rewrite_amd64_en-US.msi -OutFile $env:APPVEYOR_BUILD_FOLDER/urlRewriterInstaller.msi
   - dir
   #- ps: '$env:notepadPath/notepad.exe C:/windows/WindowsUpdate.log'
   #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
