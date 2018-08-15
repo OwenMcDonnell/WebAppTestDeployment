@@ -19,6 +19,7 @@ image: Visual Studio 2017
 services:
   - mysql
 install:
+  - SET PATH=C:\Program Files\MySQL\MySQL Server 5.7\bin;C:\Program Files\MySQL\MySQL Server 5.7\lib;%PATH%
   - mysql -e "create database openswap_test;" -u root
  # - nuget restore
   #- ps: Remove-Item -Recurse -Force C:/cygwin
