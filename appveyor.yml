@@ -1,6 +1,6 @@
 version: 1.0.{build}
 
-image: Visual Studio 2017
+image: Ubuntu
 
 environment:
   github_token:
@@ -13,7 +13,9 @@ environment:
 install:
   - nuget restore
   
-  
+artifacts:
+- path: ./**/*
+  name: allArtifacts
 build:
   project: WebAppTestDeployment.sln
   #publish_wap: true
@@ -28,19 +30,25 @@ deploy:
   #on: 
    # branch: Master
   
-- provider: WebDeploy
-  password: $(azure_pwd2)
-  website: WebAppTestDeployment2
-  username: $WebAppTestDeployment2
-  server: https://webapptestdeployment2.scm.azurewebsites.net:443/msdeploy.axd?site=WebAppTestDeployment2
-  NTLM: disabled
-  on:
-    branch: Staging
+#- provider: WebDeploy
+ # password: $(azure_pwd2)
+  #website: WebAppTestDeployment2
+  #username: $WebAppTestDeployment2
+  #server: https://webapptestdeployment2.scm.azurewebsites.net:443/msdeploy.axd?site=WebAppTestDeployment2
+  #NTLM: disabled
+  #on:
+   # branch: Staging
 
-- provider: GitHub
-  force_update: true
-  tag: $(APPVEYOR_REPO_TAG_NAME)
+#- provider: GitHub
+ # force_update: true
+  #tag: $(APPVEYOR_REPO_TAG_NAME)
   #description: random description
 
-  auth_token:
-    secure: 6A+hmRmeG9NuSdRM2dm5RpRWItLMEHyBe5PKOapBdzvpwyeojNyCkFZ1a4BdH4Qy
+  #auth_token:
+   # secure: 6A+hmRmeG9NuSdRM2dm5RpRWItLMEHyBe5PKOapBdzvpwyeojNyCkFZ1a4BdH4Qy
+deploy_script: 
+  - ps: | 
+          foreach ($artifactName in $artifacts.keys) { 
+            Write-Host $artifactName 
+            Write-Host $artifacts[$artifactName].path 
+          }
