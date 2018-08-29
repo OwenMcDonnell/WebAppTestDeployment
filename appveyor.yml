@@ -20,13 +20,13 @@ services:
   - mysql
 install:
   - SET PATH=C:\Program Files\MySQL\MySQL Server 5.7\bin;C:\Program Files\MySQL\MySQL Server 5.7\lib;%PATH%
-  - mysql -e "create database openswap_test;" -uroot --password=Password12!
+  #- mysql -e "create database openswap_test;" -uroot --password=Password12!
  # - nuget restore
   #- ps: Remove-Item -Recurse -Force C:/cygwin
   #- ps: Remove-Item -Recurse -Force C:/cygwin64
   #- ps: nuget install InheritDoc -Version 1.2.0.1
   #- ps: Invoke-WebRequest -Uri http://download.microsoft.com/download/D/D/E/DDE57C26-C62C-4C59-A1BB-31D58B36ADA2/rewrite_amd64_en-US.msi -OutFile $env:APPVEYOR_BUILD_FOLDER/urlRewriterInstaller.msi
-  - dir
+  #- dir
   #- ps: '$env:notepadPath/notepad.exe C:/windows/WindowsUpdate.log'
   #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
   #- ps: $host.Runspace.ApartmentState
@@ -40,9 +40,9 @@ install:
      # $wc.Downloadstring("https://lolibooru.moe/tag/index.xml?id=2939");
   
   
-build: off
- # project: WebAppTestDeployment.sln
-  #publish_wap: true
+build: 
+  project: WebAppTestDeployment.sln
+  publish_wap: true
 
 deploy:
 - provider: WebDeploy
